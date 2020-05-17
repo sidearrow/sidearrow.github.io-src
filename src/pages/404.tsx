@@ -1,11 +1,10 @@
 import React from 'react';
-import CmpLayout from '../components/layout.cmp';
+import { Layout } from '../components/Layout';
 
 const PageComponent: React.FC = () => (
-  <CmpLayout>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </CmpLayout>
+  <Layout>
+    <p>ページが見つかりません</p>
+  </Layout>
 );
 
 export default PageComponent;
