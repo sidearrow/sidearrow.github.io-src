@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
+    branches:
+      - master
 jobs:
   build:
     name: Deploy
@@ -17,9 +20,11 @@ jobs:
       - name: Install
         run: |
           yarn install
-          yarn install --grobal firebase-tools
+          yarn global add firebase-tools
+          echo "::add-path::$(yarn global bin)"
+      - name: Build
+        run: yarn run build
       - name: Deploy
-        run: |
-          firebase deploy --only hosting --token $FIREBASE_TOKEN
+        run: firebase deploy --only hosting --token $FIREBASE_TOKEN
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
