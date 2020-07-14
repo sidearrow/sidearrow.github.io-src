@@ -11,5 +11,12 @@ module.exports = {
     },
     'gatsby-transformer-remark',
     'gatsby-plugin-sass',
+    'gatsby-plugin-postcss',
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
+      }
+    }
   ],
 }
