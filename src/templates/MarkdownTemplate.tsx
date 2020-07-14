@@ -5,6 +5,8 @@ import { Head } from '../components/Head';
 import { PageHeader } from '../components/PageHeader';
 import { ArticlePageContext } from '../pageContext';
 
+import 'github-markdown-css/github-markdown.css';
+
 const TemplateComponent: React.FC<{ pageContext: ArticlePageContext }> = ({
   pageContext: { article },
 }) => {
@@ -12,37 +14,20 @@ const TemplateComponent: React.FC<{ pageContext: ArticlePageContext }> = ({
     <Layout>
       <Head title={article.title} description={article.description} />
       <PageHeader title={article.title}>
-        <div
-          style={{
-            textAlign: 'right',
-            color: 'gray',
-            fontSize: 'small',
-            marginBottom: '1rem',
-          }}
-        >
-          <div style={{ marginBottom: '5px' }}>
-            <span style={{ marginRight: '0.3rem' }}>作成日</span>
-            <span>{article.createdAt}</span>
-          </div>
-          <div>
-            <span style={{ marginRight: '0.3rem' }}>最終更新日</span>
-            <span>{article.updatedAt}</span>
-          </div>
+        <div className="text-right text-gray-700 my-4 text-xs">
+          <div>作成日：{article.createdAt}</div>
+          <div>最終更新日：{article.updatedAt}</div>
         </div>
-        <div style={{ marginBottom: '1rem' }}>
+        <div className="mb-4 text-sm">
           {article.tags.map((tag, i) => (
-            <Link
-              to={`/article/tag/${tag.id}`}
-              key={i}
-              style={{ marginRight: '0.5rem' }}
-            >
+            <Link to={`/article/tag/${tag.id}`} key={i} className="mr-2">
               #{tag.name}
             </Link>
           ))}
         </div>
       </PageHeader>
       <div
-        className="markdown"
+        className="markdown-body"
         dangerouslySetInnerHTML={{ __html: article.html }}
       ></div>
     </Layout>

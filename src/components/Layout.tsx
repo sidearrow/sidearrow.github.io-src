@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 
-import './../assets/index.scss';
+import './../assets/index.css';
 
 export const Layout: React.FC = ({ children }) => {
   return (
@@ -10,9 +10,7 @@ export const Layout: React.FC = ({ children }) => {
       <header>
         <Navbar />
       </header>
-      <main className="container" style={{ paddingTop: '2rem' }}>
-        {children}
-      </main>
+      <main className="container py-12">{children}</main>
       <footer>
         <Footer />
       </footer>

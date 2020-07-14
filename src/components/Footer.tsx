@@ -3,42 +3,13 @@ import { config } from '../config';
 
 export const Footer: React.FC = () => {
   return (
-    <div
-      style={{
-        backgroundColor: '#f8f9fa',
-        borderTop: 'solid 1px #dce3e5',
-      }}
-    >
-      <div
-        className="container"
-        style={{
-          textAlign: 'center',
-          paddingTop: '3rem',
-          paddingBottom: '3rem',
-        }}
-      >
-        <div
-          style={{
-            marginBottom: '3rem',
-          }}
-        >
-          <div
-            style={{
-              fontWeight: 'bold',
-              marginBottom: '1rem',
-            }}
-          >
-            sidearrow
-          </div>
+    <div className="bg-gray-100">
+      <div className="container text-center py-12">
+        <div className="mb-12">
+          <div className="mb-4 font-bold">sidearrow</div>
           <div>{config.intro}</div>
         </div>
-        <div
-          style={{
-            marginBottom: '3rem',
-            display: 'flex',
-            justifyContent: 'space-around',
-          }}
-        >
+        <div className="mb-12 flex justify-around">
           <div>
             <a href={config.url.github} target="_blank" rel="noreferrer">
               GitHub
@@ -50,14 +21,7 @@ export const Footer: React.FC = () => {
             </a>
           </div>
         </div>
-        <div
-          style={{
-            fontSize: 'small',
-            color: 'gray',
-          }}
-        >
-          &copy; 2020 sidearrow
-        </div>
+        <div className="text-sm text-gray-500">{config.copyright}</div>
       </div>
     </div>
   );

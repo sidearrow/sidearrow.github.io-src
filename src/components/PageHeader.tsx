@@ -6,9 +6,9 @@ export const PageHeader: React.FC<{ title: string }> = ({
 }) => {
   return (
     <>
-      <h1 style={{ fontSize: '1.4rem', fontWeight: 'normal' }}>{title}</h1>
+      <h1 className="text-xl">{title}</h1>
       <>{children}</>
-      <hr style={{ marginBottom: '2rem' }} />
+      <hr className="mb-8 border-gray-400" />
     </>
   );
 };

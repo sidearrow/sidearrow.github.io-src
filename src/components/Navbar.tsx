@@ -13,17 +13,8 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <nav
-      style={{
-        paddingTop: '1rem',
-        paddingBottom: '1rem',
-        borderBottom: 'solid 1px #dce3e5',
-      }}
-    >
-      <div
-        className="container"
-        style={{ display: 'flex', justifyContent: 'space-between' }}
-      >
+    <nav className="py-4 border-b border-gray-400">
+      <div className="container flex justify-between">
         <Link
           to="/"
           style={{
@@ -35,27 +26,27 @@ export const Navbar: React.FC = () => {
           {config.title}
         </Link>
 
-        <button onClick={handleMenuShow} style={{ fontSize: 'small' }}>
+        <button className="text-sm" onClick={handleMenuShow}>
           MENU
         </button>
       </div>
       <div
+        className="absolute top-0 left-0 w-full h-full bg-white"
         style={{
-          background: 'white',
-          opacity: 0.9,
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
+          opacity: 0.95,
           display: isMenuShow ? 'block' : 'none',
         }}
       >
-        <div className="container" style={{ paddingTop: '1rem' }}>
-          <div style={{ textAlign: 'right' }}>
-            <button onClick={handleMenuClose} style={{ fontSize: 'small' }}>
+        <div className="container pt-4">
+          <div className="text-right">
+            <button className="text-sm" onClick={handleMenuClose}>
               CLOSE
             </button>
+          </div>
+          <div>
+            <Link to="/about" onClick={handleMenuClose}>
+              ABOUT
+            </Link>
           </div>
         </div>
       </div>
