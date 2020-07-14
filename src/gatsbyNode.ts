@@ -91,6 +91,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
       tags[tag.id].articles.push(article);
     });
   }
+  console.log(allPages);
 
   allPages.forEach((article) => {
     if (article.type === 'ARTICLE') {

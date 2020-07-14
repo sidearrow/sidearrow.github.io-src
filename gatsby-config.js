@@ -9,8 +9,17 @@ module.exports = {
         path: `${__dirname}/content`,
       },
     },
-    'gatsby-transformer-remark',
     'gatsby-plugin-sass',
     'gatsby-plugin-postcss',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-prismjs',
+          },
+        ]
+      },
+    },
   ],
 }
