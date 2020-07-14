@@ -1,0 +1,56 @@
+@import "../../node_modules/github-markdown-css/github-markdown.css";
+@import "../../node_modules/prismjs/themes/prism-tomorrow.css";
+
+.markdown-body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: normal;
+  }
+  h1 {
+    font-size: 1.25rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  h3 {
+    font-size: 1.175rem;
+  }
+  h4 {
+    font-size: 1.15rem;
+  }
+  h5 {
+    font-size: 1.125rem;
+  }
+  h6 {
+    font-size: 1.1rem;
+    color: inherit;
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ul ul,
+  ol ul {
+    list-style-type: circle;
+  }
+  ul ul ul {
+    list-style-type: square;
+  }
+  ol,
+  ol ol,
+  ul ol,
+  ol ol ol {
+    list-style-type: decimal;
+  }
+  ul p,
+  ol p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  pre {
+    font-size: 0.8rem;
+  }
+}

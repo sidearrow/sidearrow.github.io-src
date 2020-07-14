@@ -15,14 +15,7 @@ export const Navbar: React.FC = () => {
   return (
     <nav className="py-4 border-b border-gray-400">
       <div className="container flex justify-between">
-        <Link
-          to="/"
-          style={{
-            textDecoration: 'none',
-            color: 'black',
-            fontWeight: 'bold',
-          }}
-        >
+        <Link className="no-underline" to="/">
           {config.title}
         </Link>
 
@@ -44,9 +37,16 @@ export const Navbar: React.FC = () => {
             </button>
           </div>
           <div>
-            <Link to="/about" onClick={handleMenuClose}>
-              ABOUT
-            </Link>
+            <div>
+              <Link to="/about" onClick={handleMenuClose}>
+                ABOUT
+              </Link>
+            </div>
+            <div>
+              <Link to="/development-history" onClick={handleMenuClose}>
+                開発履歴
+              </Link>
+            </div>
           </div>
         </div>
       </div>

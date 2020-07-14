@@ -5,7 +5,7 @@ import { Head } from '../components/Head';
 import { PageHeader } from '../components/PageHeader';
 import { ArticlePageContext } from '../pageContext';
 
-import 'github-markdown-css/github-markdown.css';
+import '../assets/markdown.scss';
 
 const TemplateComponent: React.FC<{ pageContext: ArticlePageContext }> = ({
   pageContext: { article },
