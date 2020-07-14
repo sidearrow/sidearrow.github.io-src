@@ -1,1 +1,5 @@
-module.exports = {}
+module.exports = {
+  purge: [
+    './src/**/*.tsx'
+  ],
+}
