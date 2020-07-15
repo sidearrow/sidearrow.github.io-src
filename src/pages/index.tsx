@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { Layout } from '../components/Layout';
 import { ContentCard } from '../components/ContentCard';
+import { Head } from '../components/Head';
 
 export const pageQuery = graphql`
   {
@@ -42,6 +43,7 @@ const IndexPage: React.FC<{ data: PageQueryResponse }> = ({ data }) => {
 
   return (
     <Layout>
+      <Head description="sidearrow's memo の TOP ページです。" />
       <section>
         {articles.map((article, i) => (
           <div key={i} style={{ marginBottom: '1rem' }}>
