@@ -1,12 +1,15 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { Layout } from '../components/Layout';
 import { ContentCard } from '../components/ContentCard';
 import { Head } from '../components/Head';
 
 export const pageQuery = graphql`
   {
-    allMarkdownRemark(filter: { frontmatter: { type: { eq: "ARTICLE" } } }) {
+    allMarkdownRemark(
+      filter: { frontmatter: { type: { eq: "ARTICLE" } } }
+      sort: { fields: frontmatter___updatedAt, order: DESC }
+    ) {
       edges {
         node {
           frontmatter {

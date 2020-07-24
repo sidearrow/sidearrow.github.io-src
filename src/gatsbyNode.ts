@@ -5,7 +5,7 @@ import { ArticlePageContext, ArticleTagPageContext } from './pageContext';
 
 const queryAllMarkdownRemark = `
 {
-  allMarkdownRemark {
+  allMarkdownRemark(sort: { fields: frontmatter___updatedAt, order: DESC }) {
     edges {
       node {
         html

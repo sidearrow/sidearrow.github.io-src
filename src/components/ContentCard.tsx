@@ -9,15 +9,11 @@ export const ContentCard: React.FC<{
 }> = ({ id, title, createdAt, updatedAt }) => {
   return (
     <div>
-      <Link to={`/article/${id}`} style={{ marginRight: '2rem' }}>
-        {title}
-      </Link>
-      <span
-        style={{ color: 'gray', display: 'inline-block', fontSize: 'small' }}
-      >
-        <span style={{ marginRight: '0.5rem' }}>作成日：{createdAt}</span>
+      <Link to={`/article/${id}`}>{title}</Link>
+      <div className="text-gray-600 text-sm">
+        <span className="mr-2">作成日：{createdAt}</span>
         <span>最終更新日：{updatedAt}</span>
-      </span>
+      </div>
     </div>
   );
 };
