@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 import { config } from '../config';
 
 export const Navbar: React.FC = () => {
@@ -15,8 +15,8 @@ export const Navbar: React.FC = () => {
   return (
     <nav className="py-4 border-b border-gray-400">
       <div className="container flex justify-between">
-        <Link className="no-underline" to="/">
-          {config.title}
+        <Link href="/">
+          <a className="no-underline">{config.title}</a>
         </Link>
 
         <button className="text-sm" onClick={handleMenuShow}>
@@ -38,13 +38,13 @@ export const Navbar: React.FC = () => {
           </div>
           <div>
             <div>
-              <Link to="/about" onClick={handleMenuClose}>
-                ABOUT
+              <Link href="/about">
+                <a onClick={handleMenuClose}>ABOUT</a>
               </Link>
             </div>
             <div>
-              <Link to="/development-history" onClick={handleMenuClose}>
-                開発履歴
+              <Link href="/development-history">
+                <a onClick={handleMenuClose}>開発履歴</a>
               </Link>
             </div>
           </div>
