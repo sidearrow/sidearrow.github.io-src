@@ -3,7 +3,7 @@ import { Layout } from '../components/Layout';
 
 const Component: React.FC = () => (
   <Layout>
-    <div>aa</div>
+    <div>メモ。</div>
   </Layout>
 );
 

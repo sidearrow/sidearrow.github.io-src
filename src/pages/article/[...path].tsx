@@ -12,7 +12,10 @@ type Props = {
 const Component: React.FC<Props> = ({ title, description, html }) => {
   return (
     <Layout>
-      <div dangerouslySetInnerHTML={{ __html: html }}></div>
+      <div
+        className="markdown-body"
+        dangerouslySetInnerHTML={{ __html: html }}
+      ></div>
     </Layout>
   );
 };
@@ -21,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = content.getArticlePaths();
 
   return {
-    paths: [{ params: { path: ['about'] } }],
+    paths: paths.map((path) => ({ params: { path: [path] } })),
     fallback: false,
   };
 };
@@ -31,7 +34,6 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
     throw new Error();
   }
   const path = ctx.params.path[0];
-
   const article = content.getArticle(path);
 
   return {

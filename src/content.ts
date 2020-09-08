@@ -21,7 +21,6 @@ class ArticleMarkdown {
 
   public parse(str: string) {
     this.md = grayMatter(str);
-    console.log(this.md);
   }
 
   public getTitle(): string {

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import { config } from '../config';
+import { CONST } from '../const';
 
 export const Head: React.FC<{
   title?: string;
