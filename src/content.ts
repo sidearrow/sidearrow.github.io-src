@@ -1,59 +1,52 @@
 import fs from 'fs';
 import path from 'path';
 import marked from 'marked';
-import grayMatter, { GrayMatterFile } from 'gray-matter';
+import grayMatter from 'gray-matter';
+import { highlightAuto } from 'highlightjs';
 
 const ARTICLE_DIR = 'content/articles';
+
+const markedRenderer = new marked.Renderer();
+marked.setOptions({
+  highlight: (code, lang) => {
+    return highlightAuto(code, [lang]).value;
+  },
+});
 
 type MarkdownParseResponse = {
   title: string;
   description: string;
   html: string;
-  breadcrumbs?: { text: string; path: string | null }[];
 };
 
 function getArticlePaths(): string[] {
   return fs.readdirSync(ARTICLE_DIR);
 }
 
-class ArticleMarkdown {
-  private md: undefined | GrayMatterFile<string>;
-
-  public parse(str: string) {
-    this.md = grayMatter(str);
-  }
-
-  public getTitle(): string {
-    if (this.md === undefined || !('title' in this.md.data)) {
-      throw new Error();
+function parseMarkdown(str: string): MarkdownParseResponse {
+  const REQUIRED_FIELDS = ['title', 'description'];
+  const grayMatterRes = grayMatter(str);
+  for (const field of REQUIRED_FIELDS) {
+    if (!(field in grayMatterRes.data)) {
+      throw new Error(`${field} is required in markdown meta.`);
     }
-    return this.md.data.title;
   }
+  const title = <string>grayMatterRes.data.title;
+  const description = <string>grayMatterRes.data.description;
+  const html = marked(grayMatterRes.content, { renderer: markedRenderer });
 
-  public getDescription(): string {
-    if (this.md === undefined || !('description' in this.md.data)) {
-      throw new Error();
-    }
-    return this.md.data.description;
-  }
-
-  public getHtml(): string {
-    if (this.md === undefined) {
-      throw new Error();
-    }
-    return marked(this.md.content);
-  }
+  return {
+    title: title,
+    description: description,
+    html: html,
+  };
 }
 
 function getArticle(name: string): MarkdownParseResponse {
   const filepath = path.join(ARTICLE_DIR, name, `${name}.md`);
   const markdownRaw = fs.readFileSync(filepath, { encoding: 'utf-8' });
-  const articleMarkdown = new ArticleMarkdown();
-  articleMarkdown.parse(markdownRaw);
 
-  const title = articleMarkdown.getTitle();
-  const description = articleMarkdown.getDescription();
-  const html = articleMarkdown.getHtml();
+  const { title, description, html } = parseMarkdown(markdownRaw);
 
   return {
     title: title,

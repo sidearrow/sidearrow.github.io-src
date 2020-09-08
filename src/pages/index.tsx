@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout } from '../components/Layout';
 
 const Component: React.FC = () => (
-  <Layout>
+  <Layout title="HOME" description="sidearrow のメモ">
     <div>メモ。</div>
   </Layout>
 );
