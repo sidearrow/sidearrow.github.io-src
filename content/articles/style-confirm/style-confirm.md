@@ -1,6 +1,5 @@
 ---
 type: ARTICLE
-id: 2020-05-17-01
 title: スタイル確認用ページ
 description: スタイル確認用ページ
 createdAt: 2020-05-17
@@ -28,7 +27,25 @@ tags:
 
 ```javascript
 const hoge = 'hoge';
-const fugaArray = ['fuga1', 'fuga2'];
+const fugas = ['fuga1', 'fuga2'];
+const hogefugas = fugas.map((fuga) => `${hoge}-${fuga}`);
+```
+
+```php
+class Hoge
+{
+    private string $hoge;
+
+    public function __construct(string $hoge)
+    {
+        $this->hoge = $hoge;
+    }
+
+    public function getHoge(): string
+    {
+        return $this->hoge;
+    }
+}
 ```
 
 ----

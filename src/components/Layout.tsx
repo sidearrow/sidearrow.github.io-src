@@ -1,12 +1,21 @@
 import React from 'react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
+import Head from 'next/head';
+import { CONST } from '../const';
 
-import './../assets/index.css';
-
-export const Layout: React.FC = ({ children }) => {
+export const Layout: React.FC<{ title: string; description: string }> = ({
+  children,
+  title,
+  description,
+}) => {
   return (
     <>
+      <Head>
+        <meta charSet="utf-8" />
+        <title>{`${title} | ${CONST.TITLE}`}</title>
+        <meta name="description" content={description} />
+      </Head>
       <header>
         <Navbar />
       </header>
