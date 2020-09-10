@@ -23,7 +23,7 @@ const Component: React.FC<Props> = ({ title, description, html }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = content.getArticlePaths();
+  const paths = content.getArticleIDs();
 
   return {
     paths: paths.map((path) => ({ params: { path: [path] } })),
