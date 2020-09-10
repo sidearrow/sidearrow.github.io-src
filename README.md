@@ -1,5 +1,24 @@
 # sidearrow.github.io
 
+https://sidearrow.github.io/
+
+## リリース手順
+
+リモートの `develop` ブランチにリリース内容をすべて push 済みであること
+
+1. リリースバージョンのタグを付与する
+
+    ```sh
+    # create tag
+    $ git tag <version>
+
+    # push tag
+    $ git push --tags
+    ```
+
+2. Pull request を作成し、マージ
+
+
 ## バージョン管理規約
 
 ### 開発・記事執筆
