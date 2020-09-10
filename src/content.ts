@@ -3,8 +3,9 @@ import path from 'path';
 import marked from 'marked';
 import grayMatter from 'gray-matter';
 import { highlightAuto } from 'highlightjs';
+import { CONST } from './const';
 
-const ARTICLE_DIR = 'content/articles';
+const CONTENT_DIR = 'content';
 
 const markedRenderer = new marked.Renderer();
 marked.setOptions({
@@ -19,8 +20,12 @@ type MarkdownParseResponse = {
   html: string;
 };
 
-function getArticlePaths(): string[] {
-  return fs.readdirSync(ARTICLE_DIR);
+function getArticleIDs(): string[] {
+  return fs.readdirSync(CONTENT_DIR);
+}
+
+function getArticleFilePath(id: string): string {
+  return path.join(CONTENT_DIR, id, `${id}.md`);
 }
 
 function parseMarkdown(str: string): MarkdownParseResponse {
@@ -42,20 +47,40 @@ function parseMarkdown(str: string): MarkdownParseResponse {
   };
 }
 
-function getArticle(name: string): MarkdownParseResponse {
-  const filepath = path.join(ARTICLE_DIR, name, `${name}.md`);
+export type Article = {
+  id: string;
+  title: string;
+  description: string;
+  html: string;
+};
+
+function getArticle(id: string): Article {
+  const filepath = getArticleFilePath(id);
   const markdownRaw = fs.readFileSync(filepath, { encoding: 'utf-8' });
 
   const { title, description, html } = parseMarkdown(markdownRaw);
 
   return {
+    id: id,
     title: title,
     description: description,
     html: html,
   };
 }
 
+function getArticles(withoutFixedPage = true): Article[] {
+  const ids = getArticleIDs();
+  const targetIds = withoutFixedPage
+    ? ids.filter((id) => CONST.FIXED_PAGE_IDS.indexOf(id) === -1)
+    : ids;
+
+  const articles = targetIds.map((id) => getArticle(id));
+
+  return articles;
+}
+
 export const content = {
-  getArticlePaths: getArticlePaths,
+  getArticleIDs: getArticleIDs,
   getArticle: getArticle,
+  getArticles: getArticles,
 };

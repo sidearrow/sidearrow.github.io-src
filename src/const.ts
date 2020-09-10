@@ -1,3 +1,5 @@
+const FIXED_PAGE_IDS = ['about', 'development-history', 'style-confirm'];
+
 export const CONST = {
   TITLE: "sidearrow's note",
   INTRO: 'ソフトウェアエンジニア@大阪',
@@ -6,6 +8,7 @@ export const CONST = {
     GITHUB: 'https://github.com/sidearrow',
     TWITTER: 'https://twitter.com/sd_arw',
   },
+  FIXED_PAGE_IDS: FIXED_PAGE_IDS,
   FIXED_PAGES: {
     ABOUT: { URL: '/article/about', TEXT: 'ABOUT' },
     DEVELOPMENT_HISOTRY: {
