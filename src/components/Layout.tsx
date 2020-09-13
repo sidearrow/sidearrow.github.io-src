@@ -15,6 +15,10 @@ export const Layout: React.FC<{ title: string; description: string }> = ({
         <meta charSet="utf-8" />
         <title>{`${title} | ${CONST.TITLE}`}</title>
         <meta name="description" content={description} />
+        <meta
+          name="google-site-verification"
+          content={CONST.GOOGLE_SITE_VERIFICATION}
+        />
       </Head>
       <header>
         <Navbar />
