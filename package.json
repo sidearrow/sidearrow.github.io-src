@@ -3,16 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start"
+    "dev": "npm-run-all -p next:dev postcss:watch",
+    "build": "npm-run-all postcss:build next:build",
+    "next:dev": "next dev",
+    "next:build": "next build && next export && node scripts/generate_sitemap_xml.js",
+    "next:start": "next start",
+    "postcss:build": "postcss src/styles/index.css -o src/styles/bundle.css",
+    "postcss:watch": "postcss src/styles/index.css -o src/styles/bundle.css -w"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "github-markdown-css": "^4.0.0",
     "gray-matter": "^4.0.2",
     "highlightjs": "^9.16.2",
     "marked": "^1.1.1",
@@ -22,6 +25,7 @@
     "tailwindcss": "^1.8.4"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^3.0.0",
     "@types/highlightjs": "^9.12.0",
     "@types/marked": "^1.1.0",
     "@types/node": "^14.6.4",
@@ -29,13 +33,17 @@
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
+    "cssnano": "^4.1.10",
     "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^8.1.0",
+    "postcss-import": "^12.0.1",
     "prettier": "^2.1.1",
-    "sass": "^1.26.10",
+    "raw-loader": "^4.0.1",
     "typescript": "^4.0.2"
   }
 }

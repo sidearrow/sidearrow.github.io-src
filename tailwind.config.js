@@ -1,5 +1,11 @@
 module.exports = {
-  purge: ['./src/**/*.tsx'],
+  corePlugins: {
+    preflight: false,
+  },
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.tsx'],
+  },
   theme: {
     extend: {},
   },

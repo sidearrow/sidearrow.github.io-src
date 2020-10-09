@@ -32,3 +32,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 export default Component;
+
+export const config = { amp: true };

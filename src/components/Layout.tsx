@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from './Navbar';
+import { Navbar } from './navbar/Navbar';
 import { Footer } from './Footer';
 import Head from 'next/head';
 import { CONST } from '../const';
@@ -20,13 +20,23 @@ export const Layout: React.FC<{ title: string; description: string }> = ({
           content={CONST.GOOGLE_SITE_VERIFICATION}
         />
       </Head>
-      <header>
-        <Navbar />
-      </header>
-      <main className="container py-12">{children}</main>
-      <footer>
-        <Footer />
-      </footer>
+      <div
+        style={{
+          height: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <header>
+          <Navbar />
+        </header>
+        <main style={{ flexGrow: 1 }}>
+          <div className="container py-12">{children}</div>
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
     </>
   );
 };
