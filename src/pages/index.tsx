@@ -3,6 +3,7 @@ import { Layout } from '../components/Layout';
 import { GetStaticProps } from 'next';
 import { content, Article } from '../content';
 import Link from 'next/link';
+import { DiaryList } from '../components/diaryList/DiaryList';
 
 type Props = {
   articles: Article[];
@@ -20,6 +21,12 @@ const Component: React.FC<Props> = ({ articles }) => (
         </div>
       ))}
     </div>
+    <section className="mt-8">
+      <h2>Diary</h2>
+      <div className="mt-4">
+        <DiaryList />
+      </div>
+    </section>
   </Layout>
 );
 

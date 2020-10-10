@@ -5,7 +5,7 @@ import grayMatter from 'gray-matter';
 import { highlightAuto } from 'highlightjs';
 import { CONST } from './const';
 
-const CONTENT_DIR = 'content';
+const CONTENT_DIR = 'content/articles';
 
 const markedRenderer = new marked.Renderer();
 marked.setOptions({
