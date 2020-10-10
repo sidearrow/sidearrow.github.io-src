@@ -12,7 +12,7 @@ export const Sidebar: React.FC = () => (
   <amp-sidebar id={SIDEBAR_ID} layout="nodisplay" style={sidebarStyle}>
     <div className="w-full h-full bg-white px-4 py-8">
       <div>
-        <Link href="/article/development-history">
+        <Link href="/articles/development-history">
           <a>開発履歴</a>
         </Link>
       </div>

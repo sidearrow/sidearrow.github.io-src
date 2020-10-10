@@ -1,9 +1,9 @@
 import React from 'react';
 import { Layout } from '../components/Layout';
 import { GetStaticProps } from 'next';
-import { content, Article } from '../content';
-import Link from 'next/link';
 import { DiaryList } from '../components/diaryList/DiaryList';
+import { ArticleList } from '../components/articleList/ArticleList';
+import { Article, articlesCollecter } from '../lib/articlesCollecter';
 
 type Props = {
   articles: Article[];
@@ -11,16 +11,12 @@ type Props = {
 
 const Component: React.FC<Props> = ({ articles }) => (
   <Layout title="HOME" description="sidearrow のメモ">
-    <h2>記事一覧</h2>
-    <div className="mt-4">
-      {articles.map((article, i) => (
-        <div key={i} className="mt-2">
-          <Link href={`/article/${article.id}`}>
-            <a>{article.title}</a>
-          </Link>
-        </div>
-      ))}
-    </div>
+    <section>
+      <h2>記事一覧</h2>
+      <div className="mt-4">
+        <ArticleList articles={articles} />
+      </div>
+    </section>
     <section className="mt-8">
       <h2>Diary</h2>
       <div className="mt-4">
@@ -30,14 +26,10 @@ const Component: React.FC<Props> = ({ articles }) => (
   </Layout>
 );
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const articles = content.getArticles();
-
-  return {
-    props: { articles: articles },
-  };
-};
-
 export default Component;
+
+export const getStaticProps: GetStaticProps<Props> = async () => ({
+  props: { articles: articlesCollecter.getList() },
+});
 
 export const config = { amp: true };
