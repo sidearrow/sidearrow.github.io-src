@@ -1,5 +1,5 @@
-@import "./normalize.css";
-@import "./normalize-custom.css";
+@import "./github-markdown-amp.css";
+@import "../../node_modules/highlightjs/styles/github.css";
 @import "./markdown.css";
 @import "../../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
 
