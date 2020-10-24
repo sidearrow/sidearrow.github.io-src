@@ -23,6 +23,7 @@ body {
 
 a {
   color: theme("colors.blue.600");
+  text-decoration: underline;
 }
 
 .container {

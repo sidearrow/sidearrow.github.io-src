@@ -2,10 +2,10 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Layout } from '../../components/Layout';
 import { PageHeader } from '../../components/PageHeader';
-import { Article, articlesCollecter } from '../../lib/articlesCollecter';
+import { content } from '../../content';
 
 type Props = {
-  article: Article;
+  article: content.Article;
 };
 
 const Component: React.FC<Props> = ({
@@ -24,15 +24,17 @@ const Component: React.FC<Props> = ({
 
 export default Component;
 
-export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: articlesCollecter
-    .getList()
-    .map((articles) => ({ params: { articleId: articles.articleId } })),
-  fallback: false,
-});
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: content.getArticleMany().map((v) => ({ params: { articleId: v.id } })),
+    fallback: false,
+  }
+};
 
-export const getStaticProps: GetStaticProps<Props> = async (ctx) => ({
-  props: { article: articlesCollecter.getOne(ctx.params?.articleId as string) },
-});
+export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
+  return {
+    props: { article: content.getArticleOne(ctx.params?.articleId as string) },
+  }
+};
 
 export const config = { amp: true };

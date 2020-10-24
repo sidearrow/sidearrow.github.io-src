@@ -13,9 +13,11 @@ export const Navbar: React.FC = () => {
         <Link href="/">
           <a className="no-underline">{CONST.TITLE}</a>
         </Link>
+        {/*
         <button className="px-2" on={`tap:${SIDEBAR_ID}.toggle`}>
           <FontAwesomeIcon icon={faBars} />
         </button>
+        */}
       </div>
     </nav>
   );

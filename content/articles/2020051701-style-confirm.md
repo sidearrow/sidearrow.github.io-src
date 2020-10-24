@@ -4,11 +4,7 @@ title: スタイル確認用ページ
 description: スタイル確認用ページ
 createdAt: 2020-05-17
 updatedAt: 2020-07-14
-tags:
-  - name: Test1
-    id: test1
-  - name: Test2
-    id: test2
+tags: []
 ---
 
 # タイトル h1

@@ -5,11 +5,7 @@ title: GIS x Web アプリケーション関連技術について
 description: GIS と Web アプリケーション関連の技術について情報収集しており、適宜更新予定です。
 createdAt: 2020-07-16
 updatedAt: 2020-07-16
-tags:
-  - name: GIS
-    id: gis
-  - name: JavaScript
-    id: javascript
+tags: [gis, javascript]
 ---
 
 現状、体系的にまとめる程度の知識がなく、備忘録的なコンテンツになっていること、ご了承ください。
