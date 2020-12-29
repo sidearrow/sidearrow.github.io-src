@@ -7,7 +7,7 @@ export const CONST = {
   GOOGLE_SITE_VERIFICATION: 'EG93v2coQjmLHzGm4vQ8P7fbvn4qydBByilbqc4Fb1c',
   EXTERNAL_URLS: {
     GITHUB: 'https://github.com/sidearrow',
-    TWITTER: 'https://twitter.com/sd_arw',
+    TWITTER: 'https://twitter.com/__sidearrow',
   },
   FIXED_PAGE_IDS: FIXED_PAGE_IDS,
   FIXED_PAGES: {

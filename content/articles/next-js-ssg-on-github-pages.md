@@ -2,11 +2,13 @@
 type: FIXED
 id: next-js-ssg-on-github-pages
 title: Next.js の SSG 機能で出力した静的サイトを GitHub Pages で公開する
-description:  Next.js の SSG 機能で出力した静的サイトを GitHub Pages で公開する手順です。
+description: Next.js の SSG 機能で出力した静的サイトを GitHub Pages で公開する手順です。
 createdAt: 2020-09-10
 updatedAt: 2020-09-10
 tags: []
 ---
+
+# Next.js の SSG 機能で出力した静的サイトを GitHub Pages で公開する
 
 ## 環境
 
@@ -19,9 +21,9 @@ tags: []
 
 ```json
 {
-    "scripts": {
-        "build": "next build && next export"
-    }
+  "scripts": {
+    "build": "next build && next export"
+  }
 }
 ```
 
@@ -35,7 +37,7 @@ GitHub リポジトリ名が `<ユーザー名>.github.io` の場合、公開 UR
 ```js
 module.exports = {
   assetPrefix: '<プレフィックス（本ケースではリポジトリ名）>',
-}
+};
 ```
 
 （参考）https://nextjs.org/docs/api-reference/next.config.js/cdn-support-with-asset-prefix
@@ -50,7 +52,7 @@ module.exports = (phase, { defaultConfig }) => {
     return { assetPrefix: '...' };
   }
   return {};
-}
+};
 ```
 
 （参考）https://nextjs.org/docs/api-reference/next.config.js/introduction

@@ -1,15 +1,11 @@
-@import "./github-markdown-amp.css";
-@import "../../node_modules/highlightjs/styles/github.css";
-@import "./markdown.css";
-@import "../../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
+@import './github-markdown-amp.css';
+@import '../../node_modules/highlightjs/styles/github.css';
+@import './markdown.css';
+@import '../../node_modules/@fortawesome/fontawesome-svg-core/styles.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-* {
-  box-sizing: border-box;
-}
 
 html {
   font-size: 14px;
@@ -19,11 +15,6 @@ html {
 
 body {
   letter-spacing: 0.05em;
-}
-
-a {
-  color: theme("colors.blue.600");
-  text-decoration: underline;
 }
 
 .container {

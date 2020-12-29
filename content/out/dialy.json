@@ -1,6 +1,0 @@
-[
-  {
-    "id": "2020-10",
-    "html": "<h1 id=\"dialy-2020-10\">Dialy 2020-10</h1>\n<h2 id=\"2020-10-10\">2020-10-10</h2>\n<h3 id=\"本サイトの-amp-対応\">本サイトの AMP 対応</h3>\n<ul>\n<li>Next.js の AMP 機能を利用</li>\n</ul>\n<h4 id=\"github-markdown-css-を-amp-ページで利用する\">github-markdown-css を AMP ページで利用する</h4>\n<ul>\n<li>Github Markdown CSS は AMP で使用できない <code>!important</code> を使用しているため、手動で削除したものを利用</li>\n</ul>\n<h4 id=\"tailwind-css-×-github-markdown-css-のリストのスタイル\">Tailwind CSS × github-markdown-css のリストのスタイル</h4>\n<ul>\n<li>github-markdown-css はリストのスタイルはユーザーエージェントスタイル依存</li>\n<li>Tailwind CSS でリストのスタイルを normalize している</li>\n<li>Google Chrome のリストのスタイルを取ってきた</li>\n</ul>\n"
-  }
-]

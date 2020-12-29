@@ -1,10 +1,8 @@
 ---
-type: FIXED
-id: development-history
-title: 開発履歴
-description: 本サイトの開発履歴です
+title: 本サイトの開発記事
+description: 本サイトの開発の詳細です
 createdAt: 2020-07-14
-updatedAt: 2020-07-14
+updatedAt: 2021-01-02
 tags: []
 ---
 

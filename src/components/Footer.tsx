@@ -18,9 +18,8 @@ export const Footer: React.FC = () => {
               href={CONST.EXTERNAL_URLS.GITHUB}
               target="_blank"
               rel="noreferrer"
-              className="text-3xl text-gray-800 hover:text-gray-600"
             >
-              <FontAwesomeIcon icon={faGithub} />
+              GitHub
             </a>
           </div>
           <div>
@@ -28,9 +27,8 @@ export const Footer: React.FC = () => {
               href={CONST.EXTERNAL_URLS.TWITTER}
               target="_blank"
               rel="noreferrer"
-              className="text-3xl text-gray-800 hover:text-gray-600"
             >
-              <FontAwesomeIcon icon={faTwitter} />
+              Twitter
             </a>
           </div>
         </div>
