@@ -35,7 +35,6 @@ const ArticleBox: React.FC<{ article: Article }> = ({ article }) => (
 const Component: React.FC<Props> = ({ articles }) => (
   <Layout title="HOME" description="sidearrow のメモ">
     <section>
-      <h2>記事一覧</h2>
       <div className="mt-4">
         {articles.map((v, i) => (
           <div className="mb-2" key={i}>
@@ -56,5 +55,3 @@ export const getStaticProps: GetStaticProps<Props> = async () => ({
       .filter((v) => v.id !== 'style-confirm'),
   },
 });
-
-export const config = { amp: true };

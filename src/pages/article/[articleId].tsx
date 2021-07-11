@@ -39,5 +39,3 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
     },
   };
 };
-
-export const config = { amp: true };

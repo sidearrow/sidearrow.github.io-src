@@ -1,8 +1,8 @@
 ---
-title: 本サイトの開発記事
-description: 本サイトの開発の詳細です
+title: 本サイトで使用している技術
+description: 本サイトで使用している技術の紹介です
 createdAt: 2020-07-14
-updatedAt: 2021-01-02
+updatedAt: 2021-07-11
 tags: []
 ---
 
@@ -15,7 +15,6 @@ tags: []
 - 静的サイトジェネレータ
   - Next.js
     - SGG
-    - AMP
 - スタイル
   - Tailwind CSS
   - github-markdown-css

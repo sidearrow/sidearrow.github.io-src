@@ -1,20 +1,25 @@
-@import './github-markdown-amp.css';
 @import '../../node_modules/highlightjs/styles/github.css';
-@import './markdown.css';
+@import '../../node_modules/github-markdown-css/github-markdown.css';
 @import '../../node_modules/@fortawesome/fontawesome-svg-core/styles.css';
+
+@import './markdown.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html {
-  font-size: 14px;
+  font-size: 12px;
   font-family: arial, sans-serif;
   @apply text-gray-800;
 }
 
 body {
   letter-spacing: 0.05em;
+}
+
+a {
+  @apply text-blue-500;
 }
 
 .container {

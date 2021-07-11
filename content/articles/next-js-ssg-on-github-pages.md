@@ -1,23 +1,19 @@
 ---
 type: FIXED
 id: next-js-ssg-on-github-pages
-title: Next.js の SSG 機能で出力した静的サイトを GitHub Pages で公開する
-description: Next.js の SSG 機能で出力した静的サイトを GitHub Pages で公開する手順です。
+title: Next.js の SSG 機能で生成した静的サイトを GitHub Actions 経由で GitHub Pages に公開する
+description: Next.js の SSG 機能で生成した静的サイトを GitHub Actions 経由で GitHub Pages に公開する手順です。
 createdAt: 2020-09-10
-updatedAt: 2020-09-10
+updatedAt: 2021-07-11
 tags: []
 ---
 
-# Next.js の SSG 機能で出力した静的サイトを GitHub Pages で公開する
-
-## 環境
-
-- Next.js: 9.5.3
+# Next.js の SSG 機能で生成した静的サイトを GitHub Actions 経由で GitHub Pages に公開する
 
 ## Next.js で SSG する
 
-`next build` 後に `next export` で、`out` フォルダに HTML, CSS, JS 等が出力される。
-`package.json` の `scripts` に 以下あたりを追加しておく。
+- `next build` 後に `next export` で、`out` フォルダに HTML, CSS, JS 等が出力される
+- `package.json` の `scripts` に 以下あたりを追加しておく
 
 ```json
 {
@@ -27,40 +23,12 @@ tags: []
 }
 ```
 
-## Next.js アプリのビルド時の注意点
-
-GitHub リポジトリ名が `<ユーザー名>.github.io` の場合、公開 URL は `https://<ユーザー名>.github.io` だが、
-それ以外のリポジトリ名の場合、公開 URL は `https://<ユーザー名>.github.io/<リポジトリ名>` になる。
-
-そのため、後者の場合、Next.js をビルドする際は `next.config.js` に設定を追加する必要がある。
-
-```js
-module.exports = {
-  assetPrefix: '<プレフィックス（本ケースではリポジトリ名）>',
-};
-```
-
-（参考）https://nextjs.org/docs/api-reference/next.config.js/cdn-support-with-asset-prefix
-
-ただ、上記の設定では開発時も適用される。環境変数で設定を出し分ける方法もあるが、Next.js で用意されている定数 `PHASE_*` を利用する。
-
-```js
-const { PHASE_PRODUCTION_BUILD } = require('next/constants');
-
-module.exports = (phase, { defaultConfig }) => {
-  if (phase === PHASE_PRODUCTION_BUILD) {
-    return { assetPrefix: '...' };
-  }
-  return {};
-};
-```
-
-（参考）https://nextjs.org/docs/api-reference/next.config.js/introduction
-
 ## GitHub Actions の設定
 
-`.github/workflows` ディレクトリ配下に適当な名前で以下のような yml を作成。
-公開ディレクトリ直下に `.nojekyll` といったファイルがないと、`_next` ディレクトリが公開されないようなので、ビルド後に作成している。
+- `.github/workflows` ディレクトリ配下に適当な名前で以下のような yml を作成
+- 公開ディレクトリ直下に `.nojekyll` といったファイルがないと、`_next` ディレクトリが公開されないようなので、ビルド後に作成している
+- 実際の設定ファイル：https://github.com/sidearrow/sidearrow.github.io/blob/master/.github/workflows/deploy.yml
+- GitHub の個人アクセストークンを作成し、環境変数に設定する必要があります
 
 ```yaml
 name: deploy to github pages
