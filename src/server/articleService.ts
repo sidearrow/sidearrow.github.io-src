@@ -42,7 +42,7 @@ export class ArticleService {
         return article;
       })
       .sort((a, b) => {
-        return b.updatedAt > a.updatedAt ? 1 : -1;
+        return b.updatedAt > a.updatedAt ? -1 : 1;
       });
     return articles;
   }

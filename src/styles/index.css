@@ -1,8 +1,8 @@
-@import '../../node_modules/highlightjs/styles/github.css';
-@import '../../node_modules/github-markdown-css/github-markdown.css';
+@import '../../node_modules/highlightjs/styles/vs2015.css';
 @import '../../node_modules/@fortawesome/fontawesome-svg-core/styles.css';
+@import '../../node_modules/katex/dist/katex.css';
 
-@import './markdown.css';
+/*@import '../../node_modules/github-markdown-css/github-markdown.css';*/
 
 @tailwind base;
 @tailwind components;
@@ -21,12 +21,28 @@ body {
 a {
   @apply text-blue-500;
 }
+a:hover {
+  text-decoration: underline;
+}
 
 .container {
   width: 100%;
   max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.katex {
+  font-size: 97%;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.katex-display > .katex {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
 }

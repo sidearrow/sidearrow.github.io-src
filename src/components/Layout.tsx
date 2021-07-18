@@ -31,7 +31,7 @@ export const Layout: React.FC<{ title: string; description: string }> = ({
           <Navbar />
         </header>
         <main style={{ flexGrow: 1 }}>
-          <div className="container py-12">{children}</div>
+          <div className="container">{children}</div>
         </main>
         <footer>
           <Footer />

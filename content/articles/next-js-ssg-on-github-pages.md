@@ -27,7 +27,7 @@ tags: []
 
 - `.github/workflows` ディレクトリ配下に適当な名前で以下のような yml を作成
 - 公開ディレクトリ直下に `.nojekyll` といったファイルがないと、`_next` ディレクトリが公開されないようなので、ビルド後に作成している
-- 実際の設定ファイル：https://github.com/sidearrow/sidearrow.github.io/blob/master/.github/workflows/deploy.yml
+- [実際の設定ファイル](https://github.com/sidearrow/sidearrow.github.io/blob/master/.github/workflows/deploy.yml)
 - GitHub の個人アクセストークンを作成し、環境変数に設定する必要があります
 
 ```yaml

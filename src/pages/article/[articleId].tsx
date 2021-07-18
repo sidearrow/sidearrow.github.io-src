@@ -14,7 +14,7 @@ const Component: React.FC<Props> = ({
   return (
     <Layout title={title} description={description}>
       <div
-        className="markdown-body mt-8"
+        className="markdown-body my-20"
         dangerouslySetInnerHTML={{ __html: content }}
       ></div>
     </Layout>
