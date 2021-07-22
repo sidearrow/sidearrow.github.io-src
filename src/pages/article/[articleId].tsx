@@ -13,6 +13,7 @@ const Component: React.FC<Props> = ({
 }) => {
   return (
     <Layout title={title} description={description}>
+      <i className="fas fa-external-link-alt"></i>
       <div
         className="markdown-body my-20"
         dangerouslySetInnerHTML={{ __html: content }}

@@ -5,7 +5,7 @@ export type Article = {
   content: string;
   createdAt: string;
   updatedAt: string;
-  tags: ArticleTag[];
+  tags: string[];
 };
 
 export type ArticleTag = {

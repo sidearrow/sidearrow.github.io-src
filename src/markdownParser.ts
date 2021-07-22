@@ -13,6 +13,20 @@ const md = new MarkdownIt({
 });
 md.use(mdkt);
 
+const defaultRender =
+  md.renderer.rules.link_open ||
+  function (tokens, idx, options, env, self) {
+    return self.renderToken(tokens, idx, options);
+  };
+md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+  const attrs = tokens[idx].attrs;
+  if (attrs !== null && attrs[0][1].startsWith('http')) {
+    tokens[idx].attrSet('target', '_blank');
+    tokens[idx].attrSet('rel', 'nofollow');
+  }
+  return defaultRender(tokens, idx, options, env, self);
+};
+
 export function parseMarkdown(str: string, parseOnlyFrontmatter = false) {
   const { content, data } = grayMatter(str);
   return {

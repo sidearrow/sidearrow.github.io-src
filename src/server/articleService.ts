@@ -25,7 +25,7 @@ export class ArticleService {
       createdAt: createdAt.toISOString().substr(0, 10).replace(/-/g, '/'),
       updatedAt: updatedAt.toISOString().substr(0, 10).replace(/-/g, '/'),
       content: content,
-      tags: [],
+      tags: res.frontmatters.tags,
     };
   }
 

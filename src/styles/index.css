@@ -32,10 +32,6 @@ a:hover {
   padding: 0 10px;
 }
 
-.katex {
-  font-size: 97%;
-}
-
 .katex-display {
   overflow-x: auto;
   overflow-y: hidden;
