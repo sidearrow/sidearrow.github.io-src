@@ -1,13 +1,11 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import { CONST } from '../const';
 
 export const Footer: React.FC = () => {
   return (
-    <div className="bg-gray-100">
-      <div className="container text-center py-12">
+    <div className="bg-gray-100 py-12">
+      <div className="container text-center">
         <div className="mb-12">
           <div className="mb-4 font-bold">sidearrow</div>
           <div>{CONST.INTRO}</div>
