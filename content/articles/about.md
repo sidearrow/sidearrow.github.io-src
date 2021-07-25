@@ -1,13 +1,15 @@
 ---
 id: about
-title: ABOUT
+title: About sidearrow
 description: 紹介ページ
 createdAt: 2020-07-14
 updatedAt: 2021-07-11
 tags: []
 ---
 
-# About
+# About sidearrow
+
+Web アプリケーション開発がメインのエンジニアです。
 
 ## 競技プログラミング
 

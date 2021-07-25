@@ -11,20 +11,13 @@ type Props = {
 
 const ArticleBox: React.FC<{ article: Article }> = ({ article }) => (
   <div>
-    <div>
-      <Link href={`article/${article.id}`}>
-        <a className="text-blue-700">{article.title}</a>
-      </Link>
-    </div>
-    <div className="text-sm">
-      <span>作成日：{article.createdAt}</span>
-      <span className="ml-2">更新日：{article.updatedAt}</span>
-    </div>
+    <Link href={`article/${article.id}`}>
+      <a className="text-blue-700">{article.title}</a>
+    </Link>
   </div>
 );
 
 const Component: React.FC<Props> = ({ articles }) => {
-  console.log(articles);
   return (
     <Layout title="HOME" description="sidearrow のメモ">
       <section>

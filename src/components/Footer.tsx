@@ -7,8 +7,7 @@ export const Footer: React.FC = () => {
     <div className="bg-gray-100 py-12">
       <div className="container text-center">
         <div className="mb-12">
-          <div className="mb-4 font-bold">sidearrow</div>
-          <div>{CONST.INTRO}</div>
+          <div className="mb-4 font-bold">{CONST.TITLE}</div>
         </div>
         <div className="mb-12 flex justify-around">
           <div>
