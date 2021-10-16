@@ -2,5 +2,9 @@
   {
     "id": "compro",
     "name": "競技プログラミング"
+  },
+  {
+    "id": "statistics",
+    "name": "統計"
   }
 ]
