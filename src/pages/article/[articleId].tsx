@@ -2,7 +2,7 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Layout } from '../../components/Layout';
 import { Article } from '../../models';
-import { ArticleService } from '../../server/articleService';
+import { getArticles, getArticle } from '../../server/articleService';
 
 type Props = {
   article: Article;
@@ -26,9 +26,7 @@ export default Component;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: new ArticleService()
-      .getMany()
-      .map((v) => ({ params: { articleId: v.id } })),
+    paths: getArticles().map((v) => ({ params: { articleId: v.id } })),
     fallback: false,
   };
 };
@@ -36,7 +34,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
   return {
     props: {
-      article: new ArticleService().getOne(ctx.params?.articleId as string),
+      article: getArticle(ctx.params?.articleId as string),
     },
   };
 };

@@ -3,7 +3,7 @@ import { Layout } from '../components/Layout';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import { Article } from '../models';
-import { ArticleService } from '../server/articleService';
+import { getArticles } from '../server/articleService';
 
 type Props = {
   articles: Article[];
@@ -60,8 +60,6 @@ export default Component;
 
 export const getStaticProps: GetStaticProps<Props> = async () => ({
   props: {
-    articles: new ArticleService()
-      .getMany()
-      .filter((v) => v.id !== 'style-confirm'),
+    articles: getArticles().filter((v) => v.id !== 'style-confirm'),
   },
 });

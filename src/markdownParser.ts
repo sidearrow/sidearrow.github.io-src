@@ -1,7 +1,6 @@
 import MarkdownIt from 'markdown-it';
 import grayMatter from 'gray-matter';
 import { highlight } from 'highlightjs';
-
 const mdkt = require('@neilsustc/markdown-it-katex');
 
 const md = new MarkdownIt({
@@ -29,8 +28,11 @@ md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
 
 export function parseMarkdown(str: string, parseOnlyFrontmatter = false) {
   const { content, data } = grayMatter(str);
+  if (parseOnlyFrontmatter) {
+    return { frontmatters: data, content: '' };
+  }
   return {
     frontmatters: data,
-    content: parseOnlyFrontmatter ? content : md.render(content),
+    content: md.render(content),
   };
 }
