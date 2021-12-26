@@ -32,26 +32,6 @@ const Component: React.FC<Props> = ({ articles }) => {
             ))}
         </div>
       </section>
-      <section>
-        <h2 className="font-bold mt-4 mb-2 text-lg">競技プログラミング</h2>
-        {articles
-          .filter((v) => v.tags.indexOf('compro') !== -1)
-          .map((v, i) => (
-            <div className="mb-2" key={i}>
-              <ArticleBox article={v} />
-            </div>
-          ))}
-      </section>
-      <section>
-        <h2 className="font-bold mt-4 mb-2 text-lg">統計</h2>
-        {articles
-          .filter((v) => v.tags.indexOf('statistics') !== -1)
-          .map((v, i) => (
-            <div className="mb-2" key={i}>
-              <ArticleBox article={v} />
-            </div>
-          ))}
-      </section>
     </Layout>
   );
 };
